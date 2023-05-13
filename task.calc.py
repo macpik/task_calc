@@ -1,6 +1,6 @@
 import logging
 import sys
-logging.basicConfig(level=logging.DEBUG, format = '%(asctime)s %(message)s')
+logging.basicConfig(level=logging.DEBUG)
 
 calculation_type = float(input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: "))
 number1 = float(input('Podaj składnik 1: '))
@@ -21,13 +21,11 @@ def calculator(calculation_type, number1, number2):
         calc = number1 / number2
     else:
         logging.debug('sth wrong')
+    if calc.is_integer():
+        calc = int(calc)
     return calc
 
 if __name__ == '__main__': 
-    calculator(calculation_type, number1, number2)
-    print(calculator(calculation_type, number1, number2))
-
-
-
+    print('Twój wynik to: %s' %calculator(calculation_type, number1, number2))
 
 
